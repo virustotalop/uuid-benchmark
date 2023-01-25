@@ -10,7 +10,6 @@ public class Bootstrap {
     private static final int ITERATIONS = 100_000_000;
 
     public static void main(String[] args) {
-        String name = "MinecraftName123";
         UUID uuid = UUID.randomUUID();
         Player player = new Player(uuid);
         //Warmup
@@ -22,7 +21,7 @@ public class Bootstrap {
     }
 
     private static <T> void run(Class<?> clazz, T obj, Supplier<T> random, boolean benchmark) {
-        Set<T> set = new HashSet<>();
+        Set<T> set = new HashSet<>(100);
         set.add(obj);
         for (int i = 0; i < 20; i++) {
             set.add(random.get());
